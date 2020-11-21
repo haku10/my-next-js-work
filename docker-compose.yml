@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  nextjs-app:
+    build: .
+    ports:
+      - "9701:3000"
+    volumes:
+      - .:/myapp
+      - node_modules_volume:/myapp/node_modules
+      - next_modules_volume:/myapp/.next
+    tty: true
+volumes:
+  node_modules_volume:
+    name: nextjs_node_modules
+  next_modules_volume:
+    name: nextjs_next_modules
